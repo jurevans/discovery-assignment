@@ -3,16 +3,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
 const DIST_DIR = 'build';
 const SRC_DIR = 'src';
+const PUBLIC_DIR = 'public';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: `./${SRC_DIR}/index.html`,
+    template: `./${PUBLIC_DIR}/index.html`,
     filename: 'index.html',
     inject: 'body',
 });
-
 
 const config = {
     entry: [

@@ -1,9 +1,12 @@
-Run:
+#Run:
 
+```
 yarn install
 yarn start --watch
+```
 
+#Build:
 
-Build:
-
+```
 yarn build
+```
