@@ -3,6 +3,9 @@ import { Component } from 'react';
 
 import './App.scss';
 
+import FeaturedVideo from './FeaturedVideo';
+import RelatedVideos from './RelatedVideos';
+
 export default class App extends Component {
 
     render() {
@@ -12,6 +15,8 @@ export default class App extends Component {
                 <div className="error">
 
                 </div>
+                <FeaturedVideo/>
+                <RelatedVideos/>
             </div>
         );
     }

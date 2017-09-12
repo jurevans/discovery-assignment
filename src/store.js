@@ -8,7 +8,6 @@ import promise from 'redux-promise-middleware';
 import axios from 'axios';
 
 import reducer from './reducers';
-import App from './components/App';
 
 const middleware = applyMiddleware(thunk, logger, promise());
 const store = createStore(reducer, middleware);
@@ -41,6 +40,7 @@ store.dispatch((dispatch) => {
 */
 
 /** TEST */
+/*
 store.dispatch({
     type: 'FETCH_FEATURED_VIDEO',
     payload: axios.get(`${FEATURED_VIDEO_API_URL}`)
@@ -50,5 +50,5 @@ store.dispatch({
     type: 'FETCH_RELATED_VIDEOS',
     payload: axios.get(`${RELATED_VIDEOS_API_URL}`)
 });
-
+*/
 export default store;

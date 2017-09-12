@@ -26,7 +26,7 @@ const RelatedVideosReducer = (state=initialState, action) => {
                 ...state,
                 loading: false,
                 loaded: true,
-                videos: action.payload.data
+                videos: action.payload.data.items
             };
             break;
         }

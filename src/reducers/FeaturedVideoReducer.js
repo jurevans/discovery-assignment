@@ -2,9 +2,12 @@
  * FeaturedVideoReducer
  */
 
+import settings from '../../settings';
+
 const initialState = {
     loading: false,
     loaded: false,
+    videoId: settings.youtube.defaultFeatureID,
     video: null,
     error: null
 };
@@ -50,6 +53,5 @@ const FeaturedVideoReducer = (state=initialState, action) => {
 
     return state;
 };
-
 
 export default FeaturedVideoReducer;

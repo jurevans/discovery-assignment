@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import FeaturedVideoReducer from './FeaturedVideo';
-import RelatedVideosReducer from './RelatedVideos';
+import FeaturedVideoReducer from './FeaturedVideoReducer';
+import RelatedVideosReducer from './RelatedVideosReducer';
 
 export default combineReducers({
     featuredVideo: FeaturedVideoReducer,
