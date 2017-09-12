@@ -4,12 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as RelatedVideosActions from '../actions/RelatedVideosActions';
+import * as FeaturedVideoActions from '../actions/FeaturedVideoActions';
 
 import Thumbnail from './Thumbnail';
 
 const mapStateToProps = function(state) {
     return {
-        featuredVideo: state.featuredVideo, /* Is loaded? Pull data to fetch related videos from this */
+        featuredVideoId: state.featuredVideo.videoId, /* Is loaded? Pull data to fetch related videos from this */
         loading: state.relatedVideos.loading,
         loaded: state.relatedVideos.loaded,
         videos: state.relatedVideos.videos,
@@ -27,11 +28,19 @@ class RelatedVideos extends Component {
 
     componentWillMount() {
         /** TODO: Should dispatch when FeaturedVideo has been fulfilled */
-        this.props.dispatch(RelatedVideosActions.fetchRelatedVideos());
+        this.props.dispatch(RelatedVideosActions.fetchRelatedVideos(this.props.featuredVideoId));
     }
 
     setFeaturedVideo(id) {
-        this.props.dispatch(RelatedVideosActions.fetchFeaturedVideo(id));
+        this.props.dispatch(FeaturedVideoActions.fetchFeaturedVideo(id));
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('NEXT PROPS', nextProps);
+
+        if(this.props.featuredVideoId !== nextProps.featuredVideoId) {
+            this.props.dispatch(RelatedVideosActions.fetchRelatedVideos(nextProps.featuredVideoId));
+        }
     }
 
     render() {

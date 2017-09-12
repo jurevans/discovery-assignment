@@ -21,7 +21,7 @@ const FeaturedVideoReducer = (state=initialState, action) => {
                 ...state,
                 loading: true,
                 loaded: false,
-                video: null
+                video: null,
             };
 
             break;
@@ -32,7 +32,8 @@ const FeaturedVideoReducer = (state=initialState, action) => {
                 ...state,
                 loading: false,
                 loaded: true,
-                video: action.payload.data
+                video: action.payload.data,
+                videoId: action.payload.data.items[0].id
             };
 
             break;
