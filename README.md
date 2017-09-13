@@ -73,6 +73,12 @@ Additional requests need to be added to return search results by category, so th
 We first need to get a list of categories from the API, then allow the user to filter the results on the
 initial landing page.
 
+Also, we need to expand the list of "related" videos by 10 as the user scrolls, up to 3 times. The 
+resulting list needs to be sorted alphabetically. Something to consider is, do we issue the `search`
+request, with `maxResults` set to 10, then 20, then 30, etc.? The YouTube API needs to be explored more 
+to see how we are restricted here. Nonetheless, the `maxResults` needs to be tracked in our store
+so it may be changed dynamically. Currently it is hard-wired to 10.
+
 ## Tech specs
 
 This project is build using the following specs:
