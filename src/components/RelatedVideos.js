@@ -10,7 +10,7 @@ import Thumbnail from './Thumbnail';
 
 const mapStateToProps = function(state) {
     return {
-        featuredVideoId: state.featuredVideo.videoId, /* Is loaded? Pull data to fetch related videos from this */
+        featuredVideoId: state.featuredVideo.videoId,
         loading: state.relatedVideos.loading,
         loaded: state.relatedVideos.loaded,
         videos: state.relatedVideos.videos,
@@ -27,7 +27,6 @@ const mapDispatchToProps = function (dispatch) {
 class RelatedVideos extends Component {
 
     componentWillMount() {
-        /** TODO: Should dispatch when FeaturedVideo has been fulfilled */
         this.props.dispatch(RelatedVideosActions.fetchRelatedVideos(this.props.featuredVideoId));
     }
 
@@ -36,8 +35,6 @@ class RelatedVideos extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('NEXT PROPS', nextProps);
-
         if(this.props.featuredVideoId !== nextProps.featuredVideoId) {
             this.props.dispatch(RelatedVideosActions.fetchRelatedVideos(nextProps.featuredVideoId));
         }
@@ -47,6 +44,8 @@ class RelatedVideos extends Component {
         return (
             <div className="related-videos">
                 <h2>Related Videos</h2>
+                {this.props.loading && <div>Loading!</div>}
+                {this.props.error && <div className="error">{this.props.error.message}</div>}
                 {this.props.videos.map((item, i) =>
                     <Thumbnail
                         key={i}
@@ -64,7 +63,7 @@ class RelatedVideos extends Component {
 RelatedVideos.propTypes = {
     loading: PropTypes.bool.isRequired,
     loaded: PropTypes.bool.isRequired,
-    video: PropTypes.object,
+    videos: PropTypes.arrayOf(PropTypes.object),
     error: PropTypes.object
 };
 

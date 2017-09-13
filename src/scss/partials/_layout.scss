@@ -1,0 +1,76 @@
+/* LAYOUT */
+
+/** TODO: */
+//@import "../../node_modules/sass-flexbox/sass-flexbox";
+
+@import "colors";
+
+body {
+  background-color: $tealBlue;
+  margin: 0;
+}
+
+.header {
+  background-color: $darkCerulean;
+  color: $tealBlue;
+  height: 60px;
+  padding: 20px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.featured-video {
+  width: 90%;
+  margin: 10px auto;
+  background-color: $tealBlue;
+  padding: 20px;
+  text-align: center;
+
+  h2, h3 {
+    text-align: left;
+  }
+
+}
+
+.related-videos {
+  border-top: 1px solid $white;
+
+  width: 90%;
+  margin: 0 auto;
+
+  .thumbnail {
+    position: relative;
+    float: left;
+    width: 20%;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px 0;
+
+    & > span {
+      display: block;
+      padding: 5px 0;
+    }
+
+    &:hover {
+      background-color: $azure;
+
+      & > span {
+
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .featured-video {
+    /** TODO */
+  }
+  .related-videos {
+    width: 97%;
+
+    .thumbnail {
+      width: 33%;
+    }
+  }
+}

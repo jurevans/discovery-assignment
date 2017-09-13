@@ -32,9 +32,13 @@ class FeaturedVideo extends Component {
     render() {
         const video = this.props.video ? this.props.video.items[0] : null;
 
+        console.log('IS FEATURED VIDEO LOADING???', this.props.loading);
+
         return (
-            <div>
+            <div className="featured-video">
                 <h2>Featured Video</h2>
+                {this.props.loading && <div>Loading!</div>}
+                {this.props.error && <div className="error">{this.props.error.message}</div>}
                 {video &&
                     <Video
                         id={video.id}

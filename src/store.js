@@ -2,16 +2,15 @@ import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
 import reducer from './reducers';
 
-const middleware = applyMiddleware(thunk, logger, promise());
+const middleware = applyMiddleware(logger, promise());
 const store = createStore(reducer, middleware);
 
 /*
-// IF NOT USING redux-promise-middleware, do something like:
+// IF NOT USING redux-promise-middleware, dispatch like so:
 
 store.dispatch((dispatch) => {
     // Related Videos
@@ -34,16 +33,4 @@ store.dispatch((dispatch) => {
 });
 */
 
-/** TEST DISPATCH */
-/*
-store.dispatch({
-    type: 'FETCH_FEATURED_VIDEO',
-    payload: axios.get(`${FEATURED_VIDEO_API_URL}`)
-});
-
-store.dispatch({
-    type: 'FETCH_RELATED_VIDEOS',
-    payload: axios.get(`${RELATED_VIDEOS_API_URL}`)
-});
-*/
 export default store;

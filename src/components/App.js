@@ -1,22 +1,22 @@
 import React from 'react';
 import { Component } from 'react';
 
-import './App.scss';
-
 import FeaturedVideo from './FeaturedVideo';
 import RelatedVideos from './RelatedVideos';
+
 
 export default class App extends Component {
 
     render() {
         return (
             <div>
-                <h1>Discovery Assignment</h1>
-                <div className="error">
-
+                <div className="header">
+                    <h1>Discovery Assignment</h1>
                 </div>
-                <FeaturedVideo/>
-                <RelatedVideos/>
+                <div>
+                    <FeaturedVideo/>
+                    <RelatedVideos/>
+                </div>
             </div>
         );
     }
